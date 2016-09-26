@@ -1,6 +1,6 @@
 {
-    "appSecret": "61c2422a7440d0f7d5a2d147acef1e4e",
-    "pageAccessToken": "EAACt9QaE3gQBAJEwf2llgSGuZAmGP4WTrkmhlMyjn9KgnwNJsxnodHM3wqMDLXvZAFLZBxc1bquhH0d8yBKItdOdjjq4ZCQJNwBZBgvhUDcg8SN5UcIR3accRoZC9afZA8cV9VX64SmfAZAAKqkQxzavT18c9TsrTZCUBKw0yEXzZAhQZDZD",
-    "validationToken": "HAPPY_BOT_TOKEN",
-    "serverURL": "https://happy-bot-dev.herokuapp.com"
+    "appSecret": "bc7e60f163efc3fe336cb2e3fefc42a4",
+    "pageAccessToken": "EAAEqZAXEYmZAEBADUUpeE4eQhNLLMo8sfkihDtoejscvmpYKZBz1rHIu2EQbQ7EV90RTUDZAnZB9W5BkAHJ2c7X1qeviS8TPKeCHPcJqPBgckTSZAEzImsSTsWjCggcpDrGaXDVvuZC1yORKSFeZBw1lYiTLIkgUXZAUrxHDljhh2lQZDZD",
+    "validationToken": "hf_fb_token",
+    "serverURL": "https://hf-bot.herokuapp.com"
 }
