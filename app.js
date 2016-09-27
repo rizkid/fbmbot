@@ -221,9 +221,9 @@ rules[0] = /search ([A-Za-z ])*/g
 actions[0] = "searchRecipe";
 
 var Action = {
-  searchRecipe: function(messageText) {
-    var param = messageText.substring(7);
-    sendTextMessage(senderID, param)
+  searchRecipe: function(event) {
+    var param = event.message.text.substring(7);
+    sendTextMessage(event.senderID, param)
   }
 }
 
@@ -324,7 +324,7 @@ function receivedMessage(event) {
     // }
     rules.forEach(function(element, index, array){
       if(element.test(messageText)) {
-        Action[actions[index]](messageText)
+        Action[actions[index]](event)
       }
     });
   } else if (messageAttachments) {
