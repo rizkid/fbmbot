@@ -319,7 +319,6 @@ function receivedMessage(event) {
       default:
         sendTextMessage(senderID, messageText);
     }
-
     // rules.forEach(function(entry){
     //   if(entry.test(messageText)) {
     //     sendTextMessage(recipientId, messageText)
