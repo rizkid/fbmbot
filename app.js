@@ -221,6 +221,7 @@ rules[0] = /search ([A-Za-z ])*/g
 actions[0] = "searchRecipe";
 function searchRecipe(messageText) {
   param = messageText.substring(7);
+  sendTextMessage(senderID, param)
 }
 
 function receivedMessage(event) {
@@ -318,9 +319,9 @@ function receivedMessage(event) {
     //   default:
     //     sendTextMessage(senderID, messageText);
     // }
-    rules.forEach(function(entry){
-      if(entry.test(messageText)) {
-        sendTextMessage(senderID, messageText)
+    rules.forEach(function(element, index, array){
+      if(element.test(messageText)) {
+        window[actions[index]]
       }
     });
   } else if (messageAttachments) {
