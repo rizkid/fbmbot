@@ -231,7 +231,7 @@ var Action = {
       path: '/api/v1/formulas/search?q='+param
     };
 
-    callback = function(response) {
+    var callback = function(response) {
       var str = '';
 
       //another chunk of data has been recieved, so append it to `str`
