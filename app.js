@@ -223,7 +223,7 @@ actions[0] = "searchRecipe";
 var Action = {
   searchRecipe: function(event) {
     var param = event.message.text.substring(7);
-    sendTextMessage(event.senderID, param)
+    sendTextMessage(event.sender.id, param)
   }
 }
 
