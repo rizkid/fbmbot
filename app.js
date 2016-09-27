@@ -230,23 +230,21 @@ var Action = {
       host: 'cms.happyrecipe.com',
       path: '/api/v1/formulas/search?q='+param
     };
-    var result;
+    var result = '';
     var callback = function(response) {
       var str = ''
       //another chunk of data has been recieved, so append it to `str`
       response.on('data', function (chunk) {
         result = JSON.parse(chunk);
-        sendTextMessage(event.sender.id, chunk)
-        str += chunk
       });
 
       //the whole response has been recieved, so we just print it out here
       response.on('end', function () {
-        sendTextMessage(event.sender.id, str)
+        // sendTextMessage(event.sender.id, str)
       });
     }
-
     http.request(options, callback).end();
+    sendTextMessage(event.sender.id, result);
     // formulas = result.formulas;
     // var elements = [];
     // formulas.forEach(function(element, index, array){
