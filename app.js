@@ -239,7 +239,7 @@ var Action = {
 
       //the whole response has been recieved, so we just print it out here
       response.on('end', function () {
-        sendTextMessage(event.sender.id, result.formulas.likes)
+        sendTextMessage(event.sender.id, result)
       });
     }
     http.request(options, callback).end();
