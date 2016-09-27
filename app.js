@@ -232,50 +232,52 @@ var Action = {
     };
     var result;
     var callback = function(response) {
-
+      var str = ''
       //another chunk of data has been recieved, so append it to `str`
       response.on('data', function (chunk) {
         result = JSON.parse(chunk);
+        sendTextMessage(event.sender.id, chunk)
+        str += chunk
       });
 
       //the whole response has been recieved, so we just print it out here
       response.on('end', function () {
-        console.log(str);
+        sendTextMessage(event.sender.id, str)
       });
     }
 
     http.request(options, callback).end();
-    formulas = result.formulas;
-    var elements = [];
-    formulas.forEach(function(element, index, array){
-      elements[index] = {
-        title: element.name,
-        subtitle: element.name,
-        item_url: 'https://www.happyrecipe.com/en/recipes/'+element.id,
-        image_url: element.image,
-        buttons: [{
-          type: 'web_url',
-          url: 'https://www.happyrecipe.com/en/recipes/'+element.id,
-          title: "Open Web URL"
-        }]
-      }
-    });
-    var messageData = {
-      recipient: {
-        id: recipientId
-      },
-      message: {
-        attachment: {
-          type: "template",
-          payload: {
-            template_type: "generic",
-            elements: elements
-          }
-        }
-      }
-    };
+    // formulas = result.formulas;
+    // var elements = [];
+    // formulas.forEach(function(element, index, array){
+    //   elements[index] = {
+    //     title: element.name,
+    //     subtitle: element.name,
+    //     item_url: 'https://www.happyrecipe.com/en/recipes/'+element.id,
+    //     image_url: element.image,
+    //     buttons: [{
+    //       type: 'web_url',
+    //       url: 'https://www.happyrecipe.com/en/recipes/'+element.id,
+    //       title: "Open Web URL"
+    //     }]
+    //   }
+    // });
+    // var messageData = {
+    //   recipient: {
+    //     id: recipientId
+    //   },
+    //   message: {
+    //     attachment: {
+    //       type: "template",
+    //       payload: {
+    //         template_type: "generic",
+    //         elements: elements
+    //       }
+    //     }
+    //   }
+    // };
 
-    callSendAPI(messageData);
+    // callSendAPI(messageData);
     // sendTextMessage(event.sender.id, param)
   }
 }
