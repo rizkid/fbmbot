@@ -9,7 +9,6 @@
 
 /* jshint node: true, devel: true */
 'use strict';
-var https = require('https');
 
 const
   bodyParser = require('body-parser'),
@@ -222,6 +221,7 @@ rules[0] = /search ([A-Za-z ])*/g
 actions[0] = "searchRecipe";
 
 var Action = {
+  var https = require('https'),
   searchRecipe: function(event) {
     var param = event.message.text.substring(7);
 
@@ -245,7 +245,7 @@ var Action = {
       });
     }
 
-    https.request(options, callback).end();
+    Action.https.request(options, callback).end();
     sendTextMessage(event.sender.id, param)
   }
 }
