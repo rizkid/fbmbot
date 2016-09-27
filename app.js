@@ -222,7 +222,7 @@ actions[0] = "searchRecipe";
 
 var Action = {
   searchRecipe: function(event) {
-    var https = require('https');
+    var http = require('http');
     var param = event.message.text.substring(7);
 
     //The url we want is: 'www.random.org/integers/?num=1&min=1&max=10&col=1&base=10&format=plain&rnd=new'
@@ -245,7 +245,7 @@ var Action = {
       });
     }
 
-    https.request(options, callback).end();
+    http.request(options, callback).end();
     sendTextMessage(event.sender.id, param)
   }
 }
