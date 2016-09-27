@@ -320,7 +320,7 @@ function receivedMessage(event) {
     // }
     rules.forEach(function(entry){
       if(entry.test(messageText)) {
-        sendTextMessage(recipientId, messageText)
+        sendTextMessage(senderID, messageText)
       }
     });
   } else if (messageAttachments) {
