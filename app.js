@@ -9,6 +9,7 @@
 
 /* jshint node: true, devel: true */
 'use strict';
+var https = require('https');
 
 const
   bodyParser = require('body-parser'),
@@ -223,6 +224,28 @@ actions[0] = "searchRecipe";
 var Action = {
   searchRecipe: function(event) {
     var param = event.message.text.substring(7);
+
+    //The url we want is: 'www.random.org/integers/?num=1&min=1&max=10&col=1&base=10&format=plain&rnd=new'
+    var options = {
+      host: 'https://cms.happyrecipe.com',
+      path: '/api/v1/formulas/search?q='+param
+    };
+
+    callback = function(response) {
+      var str = '';
+
+      //another chunk of data has been recieved, so append it to `str`
+      response.on('data', function (chunk) {
+        str += chunk;
+      });
+
+      //the whole response has been recieved, so we just print it out here
+      response.on('end', function () {
+        console.log(str);
+      });
+    }
+
+    https.request(options, callback).end();
     sendTextMessage(event.sender.id, param)
   }
 }
