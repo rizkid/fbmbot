@@ -221,7 +221,7 @@ rules[0] = /search ([A-Za-z ])*/g
 actions[0] = "searchRecipe";
 
 var Action = {
-  var https = require('https'),
+  https: require('https'),
   searchRecipe: function(event) {
     var param = event.message.text.substring(7);
 
