@@ -215,15 +215,6 @@ function receivedAuthentication(event) {
  * then we'll simply confirm that we've received the attachment.
  *
  */
-var rules = []
-rules[0] = /search ([A-Za-z ])*/g
-actions[0] = "searchRecipe";
-function searchRecipe(messageText) {
-  param = messageText.substring(7);
-
-}
-
-
 function receivedMessage(event) {
   var senderID = event.sender.id;
   var recipientID = event.recipient.id;
@@ -319,11 +310,6 @@ function receivedMessage(event) {
       default:
         sendTextMessage(senderID, messageText);
     }
-    // rules.forEach(function(entry){
-    //   if(entry.test(messageText)) {
-    //     sendTextMessage(recipientId, messageText)
-    //   }
-    // });
   } else if (messageAttachments) {
     sendTextMessage(senderID, "Message with attachment received");
   }
@@ -841,11 +827,6 @@ function callSendAPI(messageData) {
     }
   });
 }
-
-function tokenize(messageText) {
-  return messageText.split(" ");
-}
-
 
 // Start server
 // Webhooks must be available via SSL with a certificate signed by a valid
