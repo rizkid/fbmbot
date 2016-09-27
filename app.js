@@ -230,13 +230,12 @@ var Action = {
       host: 'cms.happyrecipe.com',
       path: '/api/v1/formulas/search?q='+param
     };
-
+    var result;
     var callback = function(response) {
-      var str = '';
 
       //another chunk of data has been recieved, so append it to `str`
       response.on('data', function (chunk) {
-        str += chunk;
+        result = JSON.parse(chunk);
       });
 
       //the whole response has been recieved, so we just print it out here
@@ -246,7 +245,38 @@ var Action = {
     }
 
     http.request(options, callback).end();
-    sendTextMessage(event.sender.id, param)
+    formulas = result.formulas;
+    var elements = [];
+    formulas.forEach(function(element, index, array){
+      elements[index] = {
+        title: element.name,
+        subtitle: element.name,
+        item_url: 'https://www.happyrecipe.com/en/recipes/'+element.id,
+        image_url: element.image,
+        buttons: [{
+          type: 'web_url',
+          url: 'https://www.happyrecipe.com/en/recipes/'+element.id,
+          title: "Open Web URL"
+        }]
+      }
+    });
+    var messageData = {
+      recipient: {
+        id: recipientId
+      },
+      message: {
+        attachment: {
+          type: "template",
+          payload: {
+            template_type: "generic",
+            elements: elements
+          }
+        }
+      }
+    };
+
+    callSendAPI(messageData);
+    // sendTextMessage(event.sender.id, param)
   }
 }
 
