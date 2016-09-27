@@ -232,9 +232,9 @@ var Action = {
     };
     var callback = function(response) {
       //another chunk of data has been recieved, so append it to `str`
-      var result
+      var result = ''
       response.on('data', function (chunk) {
-        result = chunk;
+        result += chunk;
       });
 
       //the whole response has been recieved, so we just print it out here
