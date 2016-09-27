@@ -321,7 +321,7 @@ function receivedMessage(event) {
     // }
     rules.forEach(function(element, index, array){
       if(element.test(messageText)) {
-        window[actions[index]]
+        window[actions[index]][messageText]
       }
     });
   } else if (messageAttachments) {
