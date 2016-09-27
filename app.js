@@ -226,10 +226,10 @@ var Action = {
     var param = event.message.text.substring(7);
 
     //The url we want is: 'www.random.org/integers/?num=1&min=1&max=10&col=1&base=10&format=plain&rnd=new'
-    // var options = {
-    //   host: 'https://cms.happyrecipe.com',
-    //   path: '/api/v1/formulas/search?q='+param
-    // };
+    var options = {
+      host: 'https://cms.happyrecipe.com',
+      path: '/api/v1/formulas/search?q='+param
+    };
 
     // var callback = function(response) {
     //   var str = '';
