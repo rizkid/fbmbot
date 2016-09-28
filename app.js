@@ -228,7 +228,7 @@ var Action = {
     //The url we want is: 'www.random.org/integers/?num=1&min=1&max=10&col=1&base=10&format=plain&rnd=new'
     var options = {
       host: 'cms.happyrecipe.com',
-      path: '/api/v1/formulas/search?q='+param
+      path: '/api/v1/formulas/search?q='+param+'&per_page=2'
     };
     var callback = function(response) {
       //another chunk of data has been recieved, so append it to `str`
