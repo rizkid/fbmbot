@@ -269,8 +269,9 @@ var Action = {
             }
           }
         };
+        callSendAPI(messageData);
         // console.log(messageData)
-        sendTextMessage(event.sender.id, parsed.formulas[0].name)
+        // sendTextMessage(event.sender.id, parsed.formulas[0].name)
       });
     }
     http.request(options, callback).end();
