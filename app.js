@@ -270,8 +270,6 @@ var Action = {
           }
         };
         console.log(messageData)
-        console.log(data_elements)
-        callSendAPI(messageData)
         // sendTextMessage(event.sender.id, parsed.formulas[0].name)
       });
     }
