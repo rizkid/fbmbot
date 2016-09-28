@@ -242,19 +242,33 @@ var Action = {
         var parsed = JSON.parse(result)
         var formulas = parsed.formulas;
         var data_elements = [];
-        formulas.forEach(function(element, index, array){
-          data_elements[index] = {
-            title: element.name,
-            subtitle: element.name,
-            item_url: 'https://www.happyrecipe.com/en/recipes/'+element.id,
-            image_url: element.image,
-            buttons: [{
-              type: 'web_url',
-              url: 'https://www.happyrecipe.com/en/recipes/'+element.id,
-              title: "Open Web URL"
-            }]
-          }
-        });
+        // formulas.forEach(function(element, index, array){
+        //   data_elements[index] = {
+        //     title: element.name,
+        //     subtitle: element.name,
+        //     item_url: 'https://www.happyrecipe.com/en/recipes/'+element.id,
+        //     image_url: element.image,
+        //     buttons: [{
+        //       type: 'web_url',
+        //       url: 'https://www.happyrecipe.com/en/recipes/'+element.id,
+        //       title: "Open Web URL"
+        //     }]
+        //   }
+        // });
+        // var messageData = {
+        //   recipient: {
+        //     id: event.recipient.id
+        //   },
+        //   message: {
+        //     attachment: {
+        //       type: "template",
+        //       payload: {
+        //         template_type: "generic",
+        //         elements: data_elements
+        //       }
+        //     }
+        //   }
+        // };
         var messageData = {
           recipient: {
             id: event.recipient.id
@@ -264,11 +278,40 @@ var Action = {
               type: "template",
               payload: {
                 template_type: "generic",
-                elements: data_elements
+                elements: [{
+                  title: formulas[0].name,
+                  subtitle: formulas[0].name,
+                  item_url: 'https://www.happyrecipe.com/en/recipes/'+formulas[0].id,
+                  image_url: formulas[0].image,
+                  buttons: [{
+                    type: "web_url",
+                    url: 'https://www.happyrecipe.com/en/recipes/'+formulas[0].id,
+                    title: "Open Web URL"
+                  }, {
+                    type: "postback",
+                    title: "Call Postback",
+                    payload: "Payload for first bubble",
+                  }],
+                }, {
+                  title: formulas[1].name,
+                  subtitle: formulas[1].name,
+                  item_url: 'https://www.happyrecipe.com/en/recipes/'+formulas[1].id,
+                  image_url: formulas[1].image,
+                  buttons: [{
+                    type: "web_url",
+                    url: 'https://www.happyrecipe.com/en/recipes/'+formulas[1].id,
+                    title: "Open Web URL"
+                  }, {
+                    type: "postback",
+                    title: "Call Postback",
+                    payload: "Payload for first bubble",
+                  }],
+                }]
               }
             }
           }
         };
+
         callSendAPI(messageData);
         // console.log(messageData)
         // sendTextMessage(event.sender.id, parsed.formulas[0].name)
