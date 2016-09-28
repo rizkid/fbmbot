@@ -269,6 +269,7 @@ var Action = {
             }
           }
         };
+        console.log(messageData)
         callSendAPI(messageData)
         // sendTextMessage(event.sender.id, parsed.formulas[0].name)
       });
