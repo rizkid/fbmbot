@@ -269,8 +269,8 @@ var Action = {
             }
           }
         };
-
-        callSendAPI(JSON.stringify(messageData));
+        console.log(JSON.stringify(messageData))
+        // callSendAPI();
         // console.log(messageData)
         // sendTextMessage(event.sender.id, parsed.formulas[0].name)
       });
