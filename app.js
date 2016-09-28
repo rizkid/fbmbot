@@ -246,11 +246,11 @@ var Action = {
           data_elements[index] = {
             title: element.name,
             subtitle: element.name,
-            item_url: 'https://www.happyrecipe.com/en/recipes/'+element.id,
+            item_url: 'https://www.happyrecipe.com/en/recipes/'+element.id + '?utm_source=fb_messengger',
             image_url: element.image,
             buttons: [{
               type: 'web_url',
-              url: 'https://www.happyrecipe.com/en/recipes/'+element.id,
+              url: 'https://www.happyrecipe.com/en/recipes/' + element.id + '?utm_source=fb_messengger',
               title: "Open Web URL"
             }]
           }
