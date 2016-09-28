@@ -257,7 +257,7 @@ var Action = {
         });
         var messageData = {
           recipient: {
-            id: recipientId
+            id: event.recipient.id
           },
           message: {
             attachment: {
