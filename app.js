@@ -240,7 +240,7 @@ var Action = {
       //the whole response has been recieved, so we just print it out here
       response.on('end', function () {
         var parsed = JSON.parse(result)
-        console.log(parsed);
+        console.log(parsed.formulas);
         // sendTextMessage(event.sender.id, parsed.formulas[0].name)
       });
     }
