@@ -241,9 +241,9 @@ var Action = {
       response.on('end', function () {
         var parsed = JSON.parse(result)
         var formulas = parsed.formulas;
-        var elements = [];
+        var data_elements = [];
         formulas.forEach(function(element, index, array){
-          elements[index] = {
+          data_elements[index] = {
             title: element.name,
             subtitle: element.name,
             item_url: 'https://www.happyrecipe.com/en/recipes/'+element.id,
@@ -264,12 +264,13 @@ var Action = {
               type: "template",
               payload: {
                 template_type: "generic",
-                elements: elements
+                elements: data_elements
               }
             }
           }
         };
         console.log(messageData)
+        console.log(data_elements)
         callSendAPI(messageData)
         // sendTextMessage(event.sender.id, parsed.formulas[0].name)
       });
