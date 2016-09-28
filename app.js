@@ -240,7 +240,7 @@ var Action = {
       //the whole response has been recieved, so we just print it out here
       response.on('end', function () {
         var parsed = JSON.parse(result)
-        formulas = parsed.formulas;
+        var formulas = parsed.formulas;
         var elements = [];
         formulas.forEach(function(element, index, array){
           elements[index] = {
