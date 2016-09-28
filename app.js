@@ -257,7 +257,7 @@ var Action = {
         });
         var messageData = {
           recipient: {
-            id: event.recipient.id
+            id: event.sender.id
           },
           message: {
             attachment: {
@@ -269,8 +269,7 @@ var Action = {
             }
           }
         };
-        console.log(JSON.stringify(messageData))
-        // callSendAPI();
+        callSendAPI(messageData);
         // console.log(messageData)
         // sendTextMessage(event.sender.id, parsed.formulas[0].name)
       });
