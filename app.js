@@ -241,39 +241,40 @@ var Action = {
       response.on('end', function () {
         var parsed = JSON.parse(result)
         console.log(parsed.formulas[0].name);
+        formulas = parsed.formulas;
+        var elements = [];
+        formulas.forEach(function(element, index, array){
+          elements[index] = {
+            title: element.name,
+            subtitle: element.name,
+            item_url: 'https://www.happyrecipe.com/en/recipes/'+element.id,
+            image_url: element.image,
+            buttons: [{
+              type: 'web_url',
+              url: 'https://www.happyrecipe.com/en/recipes/'+element.id,
+              title: "Open Web URL"
+            }]
+          }
+        });
+        var messageData = {
+          recipient: {
+            id: recipientId
+          },
+          message: {
+            attachment: {
+              type: "template",
+              payload: {
+                template_type: "generic",
+                elements: elements
+              }
+            }
+          }
+        };
+        callSendAPI(messageData)
         // sendTextMessage(event.sender.id, parsed.formulas[0].name)
       });
     }
     http.request(options, callback).end();
-    // formulas = result.formulas;
-    // var elements = [];
-    // formulas.forEach(function(element, index, array){
-    //   elements[index] = {
-    //     title: element.name,
-    //     subtitle: element.name,
-    //     item_url: 'https://www.happyrecipe.com/en/recipes/'+element.id,
-    //     image_url: element.image,
-    //     buttons: [{
-    //       type: 'web_url',
-    //       url: 'https://www.happyrecipe.com/en/recipes/'+element.id,
-    //       title: "Open Web URL"
-    //     }]
-    //   }
-    // });
-    // var messageData = {
-    //   recipient: {
-    //     id: recipientId
-    //   },
-    //   message: {
-    //     attachment: {
-    //       type: "template",
-    //       payload: {
-    //         template_type: "generic",
-    //         elements: elements
-    //       }
-    //     }
-    //   }
-    // };
 
     // callSendAPI(messageData);
     // sendTextMessage(event.sender.id, param)
