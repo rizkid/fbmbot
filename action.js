@@ -2,6 +2,12 @@ const
   https = require('https'),
   http = require('http'),
   request = require('request');
+
+// Generate a page access token for your page from the App Dashboard
+const PAGE_ACCESS_TOKEN = (process.env.MESSENGER_PAGE_ACCESS_TOKEN) ?
+  (process.env.MESSENGER_PAGE_ACCESS_TOKEN) :
+  config.get('pageAccessToken');
+
 var Action = {
   searchRecipe: function(event) {
     var param = event.message.text.substring(7);
