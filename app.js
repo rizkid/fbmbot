@@ -220,7 +220,7 @@ var actions = []
 rules[0] = /search ([A-Za-z ])*/g
 actions[0] = "searchRecipe";
 
-var Action = require("action.js");
+var Action = require("./action.js");
 
 // var Action = {
 //   searchRecipe: function(event) {
