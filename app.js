@@ -245,7 +245,7 @@ var Action = {
         formulas.forEach(function(element, index, array){
           data_elements[index] = {
             title: element.name,
-            subtitle: element.name+'<center>'+'text</center>',
+            subtitle: element.name+chr(10)+'text',
             item_url: 'https://www.happyrecipe.com/en/recipes/'+element.id + '?utm_source=fb_messengger',
             image_url: element.image,
             buttons: [{
