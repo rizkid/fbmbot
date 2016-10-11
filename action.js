@@ -40,7 +40,12 @@ var Action = {
               type: 'web_url',
               url: 'https://www.happyrecipe.com/en/recipes/' + element.id + '?utm_source=fb_messengger',
               title: "Open Web URL"
-            }]
+            }],
+            buttons:[
+              {
+                type:"element_share"
+              }
+            ]
           }
         });
         var messageData = {
